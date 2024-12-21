@@ -9,6 +9,8 @@ export const getUsersForSideBar = async (req, res) => {
     const filteredUsers = await User.find({
       _id: { $ne: loggedInUserId },
     }).select("-password");
+    console.log("Users fetched: ", filteredUsers);
+
     return res.status(200).json(filteredUsers);
   } catch (error) {
     console.log("Error in getUsersForSideBar controller: ", error);
@@ -27,6 +29,8 @@ export const getMessages = async (req, res) => {
         { senderId: userToChatId, receiverId: myId },
       ],
     });
+    console.log("Messages fetched: ", { messages });
+
     return res.status(200).json({ messages });
   } catch (error) {
     console.log("Error in getMessages controller: ", error);
