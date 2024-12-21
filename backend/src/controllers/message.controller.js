@@ -27,7 +27,7 @@ export const getMessages = async (req, res) => {
         { senderId: userToChatId, receiverId: myId },
       ],
     });
-    return res.status(200).json(messages);
+    return res.status(200).json({ messages });
   } catch (error) {
     console.log("Error in getMessages controller: ", error);
     return res.status(500).json({ message: "Internal server error" });
