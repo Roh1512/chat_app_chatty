@@ -17,7 +17,7 @@ export const useChatStore = create((set, get) => ({
 
       set({ users: res.data });
     } catch (error) {
-      console.log("getUsers error: ", error);
+      console.error("getUsers error: ", error);
       toast.error(error.response.data.message);
     } finally {
       set({ isUsersLoading: false });
@@ -31,7 +31,7 @@ export const useChatStore = create((set, get) => ({
 
       set({ messages: res.data.messages });
     } catch (error) {
-      console.log("getMessages Error: ", error);
+      console.error("getMessages Error: ", error);
       toast.error(error.response.data.message);
     } finally {
       set({ isMessagesLoading: false });
@@ -47,9 +47,8 @@ export const useChatStore = create((set, get) => ({
       );
 
       set({ messages: [...messages, res?.data] });
-      console.log("After sending: ", messages);
     } catch (error) {
-      console.log(error);
+      console.error(error);
 
       toast.error(error.response.data.message);
     }

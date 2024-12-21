@@ -65,7 +65,7 @@ export const useAuthStore = create((set, get) => ({
       get().diconnectSocket();
     } catch (error) {
       toast.error("Error logging out");
-      console.log("Error in logout: ", error);
+      console.error("Error in logout: ", error);
     }
   },
 
