@@ -14,6 +14,7 @@ const ChatContainer = () => {
     selectedUser,
     subscribeToMessages,
     unsubscribeFromMessages,
+    sendingMessage,
   } = useChatStore();
   const { authUser } = useAuthStore();
 
@@ -94,6 +95,7 @@ const ChatContainer = () => {
           })}
       </div>
       <MessageInput />
+      {sendingMessage ? <p className="text-right">Sending...</p> : <br />}
     </div>
   );
 };
